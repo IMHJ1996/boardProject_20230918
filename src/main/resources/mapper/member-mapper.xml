@@ -21,13 +21,15 @@
     <select id="login" parameterType="member" resultType="member">
     select * from memberdb_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
     </select>
-<!--   <update id="update" parameterType="member">-->
-<!--        update member_table set  MemberEmail=#{MemberEmail}, MemberPassword=#{MemberPassword},-->
-<!--       MemberName=#{MemberName}, MemberBirth=#{MemberBirth}, MemberMobile=#{MemberMobile}-->
-<!--        where id=#{id}-->
-<!--    </update>-->
-<!--    <delete id="delete" parameterType="Long">-->
-<!--        delete from member_table where id=#{id}-->
-<!--    </delete>-->
-
+   <update id="update" parameterType="member">
+        update memberdb_table set  memberEmail=#{memberEmail}, memberPa ssword=#{memberPassword},
+       memberName=#{MemberName}, memberMobile=#{memberMobile}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="Long">
+        delete from memberdb_table where id=#{id}
+    </delete>
+    <select id="findByEmail" parameterType="String" resultType="member">
+        select * from memberdb_table where memberEmail=#{memberEmail}
+    </select>
 </mapper>

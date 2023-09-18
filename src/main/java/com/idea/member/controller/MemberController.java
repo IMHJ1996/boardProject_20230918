@@ -3,6 +3,8 @@ package com.idea.member.controller;
 import com.idea.member.dto.MemberDTO;
 import com.idea.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,7 +67,16 @@ public class MemberController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         memberService.delete(id);
-        return "redirect:/members";
+        return "redirect:/list";
+    }
+    @PostMapping("/duplicate-check")
+    public ResponseEntity duplicateCheck(@RequestParam("memberEmail") String memberEmail) {
+        MemberDTO memberDTO = memberService.findByMemberEmail(memberEmail);
+        if (memberDTO == null) {
+            return new ResponseEntity<>(HttpStatus.OK); // http status code 200
+        } else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
     }
 
 }

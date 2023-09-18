@@ -41,4 +41,13 @@ public class MemberService {
             return false;
         }
     }
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
+    public MemberDTO findByMemberEmail(String memberEmail) {
+        return memberRepository.findByMemberEmail(memberEmail);
+    }
 }
+
+
+
