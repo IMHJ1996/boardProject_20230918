@@ -78,5 +78,13 @@ public class MemberController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
-
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        // 아래 방법 중 한가지만 사용
+        // 해당 파라미터만 없앨 경우
+        session.removeAttribute("loginEmail");
+        // 세션 전체를 없앨 경우
+//        session.invalidate();
+        return "redirect:/";
+    }
 }

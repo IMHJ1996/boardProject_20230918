@@ -21,8 +21,8 @@
             <tr>
                 <td>id</td>
                 <td>email</td>
+                <td>password</td>
                 <td>name</td>
-                <td>birth</td>
                 <td>mobile</td>
                 <td>조회</td>
                 <td>삭제</td>

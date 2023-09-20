@@ -19,6 +19,9 @@
     <li class="menu-item" id="login-area">
 
     </li>
+<%--    <li class="menu-item">--%>
+<%--      <a href="/save">글쓰기</a>--%>
+<%--    </li>--%>
   </ul>
 </div>
 <script>
@@ -28,9 +31,11 @@
   if (loginEmail.length != 0) {
     // 로그인 했음
     loginArea.innerHTML = "<a href='/mypage'>" + loginEmail + "님 환영해요!</a>" +
-            "<a href='/logout'>logout</a>";
+            "<a href='/logout'>logout</a>"+  "<a href='/save'>글쓰기</a>" ;
   } else {
     // 로그인 안했음
     loginArea.innerHTML = "<a href='/login'>로그인</a>";
   }
+
+
 </script>
